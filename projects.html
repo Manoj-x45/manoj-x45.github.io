@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects • Manoj S</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <nav class="nav container">
+      <div class="brand"><span class="logo"></span> Manoj S</div>
+      <div class="menu">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="skills.html">Skills</a>
+        <a href="education.html">Education</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container section">
+    <h2 data-reveal>Projects</h2>
+    <p class="lead" data-reveal>Hover any card to tilt. Click “Details” to learn more.</p>
+
+    <div class="grid">
+      <article class="card" data-reveal>
+        <div class="meta">IoT • Energy</div>
+        <h3>EcoPiezo Powestore</h3>
+        <p>Smart energy harvesting from vibrations with remote monitoring.</p>
+        <div class="meta">Arduino • Firebase • App Inventor</div>
+        <a class="btn ghost" data-modal-open="p1">Details</a>
+      </article>
+
+      <article class="card" data-reveal>
+        <div class="meta">Safety • Realtime</div>
+        <h3>Anti‑Sleep Alarm</h3>
+        <p>ESP32-based driver alert system with notifications.</p>
+        <div class="meta">ESP32 • Firebase • App Inventor</div>
+        <a class="btn ghost" data-modal-open="p2">Details</a>
+      </article>
+
+      <article class="card" data-reveal>
+        <div class="meta">Web • Product</div>
+        <h3>Wildlife Reservation</h3>
+        <p>Simplified booking experience to support conservation programs.</p>
+        <div class="meta">HTML • CSS • SQL</div>
+        <a class="btn ghost" data-modal-open="p3">Details</a>
+      </article>
+
+      <article class="card" data-reveal>
+        <div class="meta">Web • Commerce</div>
+        <h3>E‑Commerce Website</h3>
+        <p>Clean storefront, responsive UI, and secure flows.</p>
+        <div class="meta">AngularJS • HTML • CSS</div>
+        <a class="btn ghost" data-modal-open="p4">Details</a>
+      </article>
+    </div>
+
+    <!-- Modals -->
+    <div class="modal card container" id="p1" style="display:none"></div>
+    <div class="modal card container" id="p2" style="display:none"></div>
+    <div class="modal card container" id="p3" style="display:none"></div>
+    <div class="modal card container" id="p4" style="display:none"></div>
+  </main>
+
+  <footer class="footer">© 2025 Manoj S</footer>
+  <script src="script.js"></script>
+  <script>
+    const modal = (title, bullets) => `
+      <div class="close" style="position:absolute;right:16px;top:12px;cursor:pointer;font-weight:800">✕</div>
+      <h3 style="margin:0 0 8px">${title}</h3>
+      <ul class="meta" style="margin:0 0 0 18px; padding:0; line-height:1.85">
+        ${bullets.map(b=>`<li>${b}</li>`).join('')}
+      </ul>`;
+    const details = {
+      p1: ["Low‑power harvesting with piezo sensors", "Realtime metrics & alerts", "Mobile dashboard and history"],
+      p2: ["Drowsiness detection routine", "Configurable thresholds", "Cloud‑synced alerts"],
+      p3: ["User roles & secure booking", "Readable, responsive UI", "Data persistence and exports"],
+      p4: ["Product catalog & filters", "Cart, checkout, confirmation", "Componentized front‑end"]
+    };
+    ["p1","p2","p3","p4"].forEach(id=>{
+      const el = document.getElementById(id);
+      el.style.display='block';
+      el.innerHTML = modal(document.querySelector(`[data-modal-open="${id}"]`).closest('.card').querySelector('h3').textContent, details[id]);
+      el.style.display='none';
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manoj S | Creative Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&family=Space+Grotesk:wght@500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <nav class="nav container">
+      <div class="brand"><span class="logo"></span> Manoj S</div>
+      <div class="menu">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="skills.html">Skills</a>
+        <a href="education.html">Education</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <canvas class="hero-canvas"></canvas>
+    <div class="hero-inner container">
+      <span class="badge">🚀 Building future-ready tech</span>
+      <h1 class="gradient-text" data-reveal>IoT • Cyber Security • Cloud</h1>
+      <p class="sub" data-reveal data-typer='["IT Student", "IoT tinkerer", "Cybersecurity Learner", "Cloud Enthusiast"]' data-typer-speed="65"></p>
+      <div class="cta-row" data-reveal>
+        <a class="btn" href="projects.html">Explore Projects</a>
+        <a class="btn ghost" href="contact.html">Let’s Connect</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section container">
+    <h2 data-reveal>Featured Highlights</h2>
+    <p class="lead" data-reveal>A sneak peek into what I love building—blending hardware, software, and clean design.</p>
+
+    <div class="grid">
+      <article class="card" data-reveal>
+        <div class="meta">IoT • Energy</div>
+        <h3>EcoPiezo Powestore</h3>
+        <p>Converts vibrations into electricity with realtime telemetry & dashboards.</p>
+        <a class="btn ghost" data-modal-open="m1">Details</a>
+      </article>
+
+      <article class="card" data-reveal>
+        <div class="meta">Safety • Realtime</div>
+        <h3>Anti‑Sleep Alarm</h3>
+        <p>ESP32-based alert system for drivers with mobile notifications.</p>
+        <a class="btn ghost" data-modal-open="m2">Details</a>
+      </article>
+
+      <article class="card" data-reveal>
+        <div class="meta">Web • Product</div>
+        <h3>E‑Commerce Platform</h3>
+        <p>Smooth shopping UX with secure flows & live updates.</p>
+        <a class="btn ghost" data-modal-open="m3">Details</a>
+      </article>
+    </div>
+  </section>
+
+  <!-- Modals -->
+  <div class="modal card container" id="m1" style="display:none"></div>
+  <div class="modal card container" id="m2" style="display:none"></div>
+  <div class="modal card container" id="m3" style="display:none"></div>
+
+  <footer class="footer">© 2025 Manoj S • Crafted with care</footer>
+  <script src="script.js"></script>
+  <script>
+    // simple modal structure injection to keep HTML clean
+    const modalHTML = (title, details) => `
+      <div class="close" style="position:absolute;right:16px;top:12px;cursor:pointer;font-weight:800">✕</div>
+      <h3 style="margin:0 0 6px">${title}</h3>
+      <p class="meta">${details}</p>
+    `;
+    document.getElementById('m1').style.display='block'; document.getElementById('m1').innerHTML=modalHTML("EcoPiezo Powestore","Arduino • Firebase • App Inventor. Intelligent energy harvesting with remote dashboards.");
+    document.getElementById('m2').style.display='block'; document.getElementById('m2').innerHTML=modalHTML("Anti‑Sleep Alarm","ESP32 • Firebase • App Inventor. Real‑time driver monitoring & alerts.");
+    document.getElementById('m3').style.display='block'; document.getElementById('m3').innerHTML=modalHTML("E‑Commerce Platform","AngularJS • HTML • CSS. Smooth catalog browsing & secure checkout.");
+    document.querySelectorAll('.modal').forEach(m=>m.style.display='none'); // hide after populate
+  </script>
+</body>
+</html>
